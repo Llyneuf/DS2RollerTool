@@ -1,3 +1,6 @@
+## Screenshot
+![DS2 Roller Tool screenshot](assets/DS2Roller.png)
+
 # DS2 Class Roller
 
 A simple class roller for Dark Souls II, mainly made for use with DS2 Randomizer mod.
