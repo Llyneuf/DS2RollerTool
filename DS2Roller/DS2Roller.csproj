@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon>Assets\Images\favicon.ico</ApplicationIcon>
+        <Title>DS2Roller</Title>
+        <Authors>Llyneuf</Authors>
+        <Description>Roll your class and start gift for Dark Souls 2</Description>
+        <PackageProjectUrl>https://www.twitch.tv/llyneuf</PackageProjectUrl>
+        <PackageLicenseUrl>https://www.twitch.tv/llyneuf</PackageLicenseUrl>
+        <PackageIcon>favicon.ico</PackageIcon>
+        <RepositoryUrl>https://www.twitch.tv/llyneuf</RepositoryUrl>
+        <Company>Llyneuf</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Page Update="UI\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Assets\Sounds\final.wav">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Assets\Sounds\tick.wav">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Images\Background.jpg" />
+      <Resource Include="Assets\Images\Background.jpg" />
+      <None Remove="Assets\Images\favicon.ico" />
+      <Resource Include="Assets\Images\favicon.ico" />
+    </ItemGroup>
+
+</Project>
