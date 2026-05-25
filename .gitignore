@@ -5,6 +5,9 @@ node_modules/
 dist/
 build/
 out/
+release-single/
+bin/
+obj/
 
 # Environment / secrets
 .env

@@ -26,19 +26,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Assets\Sounds\final.wav">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Sounds\tick.wav">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Assets\Images\Background.jpg" />
       <Resource Include="Assets\Images\Background.jpg" />
       <None Remove="Assets\Images\favicon.ico" />
       <Resource Include="Assets\Images\favicon.ico" />
+      <None Remove="Assets\Sounds\final.wav" />
+      <Resource Include="Assets\Sounds\final.wav" />
+      <None Remove="Assets\Sounds\tick.wav" />
+      <Resource Include="Assets\Sounds\tick.wav" />
     </ItemGroup>
 
 </Project>

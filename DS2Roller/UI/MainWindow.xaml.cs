@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 using DS2Roller.Data;
 using DS2Roller.Logic;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -45,12 +46,31 @@ namespace DS2Roller.UI
         private void InitSounds()
         {
             _tickSound = new MediaPlayer();
-            _tickSound.Open(new Uri("Assets/Sounds/tick.wav", UriKind.Relative));
+            _tickSound.Open(new Uri(ExtractSound("tick.wav"), UriKind.Absolute));
             _tickSound.Volume = 0.4;
 
             _finalSound = new MediaPlayer();
-            _finalSound.Open(new Uri("Assets/Sounds/final.wav", UriKind.Relative));
+            _finalSound.Open(new Uri(ExtractSound("final.wav"), UriKind.Absolute));
             _finalSound.Volume = 0.7;
+        }
+
+        private static string ExtractSound(string fileName)
+        {
+            string outputDirectory = Path.Combine(Path.GetTempPath(), "DS2Roller");
+            Directory.CreateDirectory(outputDirectory);
+
+            string outputPath = Path.Combine(outputDirectory, fileName);
+            Uri resourceUri = new($"pack://application:,,,/Assets/Sounds/{fileName}", UriKind.Absolute);
+            using Stream? source = Application.GetResourceStream(resourceUri)?.Stream;
+
+            if (source is null)
+            {
+                throw new FileNotFoundException($"Sound resource not found: {fileName}");
+            }
+
+            using FileStream destination = File.Create(outputPath);
+            source.CopyTo(destination);
+            return outputPath;
         }
 
         private void Roll_Click(object sender, RoutedEventArgs e)
